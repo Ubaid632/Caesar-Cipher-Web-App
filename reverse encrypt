@@ -1,0 +1,12 @@
+1. # Reverse Cipher
+ 2. # https://www.nostarch.com/crackingcodes/ (BSD Licensed)
+ 3.
+ 4. message = 'Three can keep a secret, if two of them are dead.'
+ 5. translated = ''
+ 6.
+ 7. i = len(message) - 1
+ 8. while i >= 0:
+ 9.     translated = translated + message[i]
+10.     i = i - 1
+11.
+12. print(translated)
