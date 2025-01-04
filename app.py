@@ -16,7 +16,7 @@ def caesar(message, offset):
 
 # Streamlit app layout
 st.title("Naasih's Cipher App")
-st.write("Encrypt your text using the Caesar cipher.")
+st.write("this app encrypts and decryptes your sentences which means it makes your sentence not easy to understand")
 
 # Input for plain text
 text = st.text_input("Enter the text to be encrypted:")
