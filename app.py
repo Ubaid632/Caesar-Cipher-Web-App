@@ -14,7 +14,7 @@ def decrypt(text, shift):
     return caesar_cipher(text, -shift)
 
 # App Title
-st.title("Aqsi's Cipher App")  # Customize with your name
+st.title("Ubaid's Cipher App")  # Customize with your name
 st.write("The Caesar cipher is a substitution cipher where each letter in the plaintext is shifted by a certain number of positions in the alphabet.")
 
 # User input
