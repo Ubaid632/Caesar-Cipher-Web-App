@@ -1,34 +1,39 @@
 import streamlit as st
 
-def caesar_cipher(text, shift):
-    result = ""
-    for char in text:
-        if char.isalpha():
-            start = ord('a') if char.islower() else ord('A')
-            result += chr((ord(char) - start + shift) % 26 + start)
+def caesar(message, offset):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    encrypted_text = ''
+
+    for char in message.lower():
+        if char == ' ':
+            encrypted_text += char
         else:
-            result += char
-    return result
+            index = alphabet.find(char)
+            new_index = (index + offset) % len(alphabet)
+            encrypted_text += alphabet[new_index]
 
-def decrypt(text, shift):
-    return caesar_cipher(text, -shift)
+    return encrypted_text
 
-# App Title
-st.title("Ubaid's Cipher App")  # Customize with your name
-st.write("The Caesar cipher is a substitution cipher where each letter in the plaintext is shifted by a certain number of positions in the alphabet.")
+# Streamlit app layout
+st.title("Ubaid's Cipher Web App")
+st.write("Encrypt your text using the Caesar cipher.")
 
-# User input
-text = st.text_input("Enter the text you want to encrypt/decrypt:")
+# Input for plain text
+text = st.text_input("Enter the text to be encrypted:")
 
-shift = st.slider("Select Shift Value", min_value=1, max_value=25, value=5)
+# Input for shift value
+shift = st.number_input("Enter the shift value (1-25):", min_value=1, max_value=25, value=5)
 
-# Encrypt button
-if st.button("Run Cipher"):
-    encrypted_text = caesar_cipher(text, shift)
-    st.write("Encrypted Text:", encrypted_text)
-
-# Decrypt button
-if st.button("Decrypt Now!"):
-    decrypted_text = decrypt(text, shift)
-    st.write("Decrypted Text:", decrypted_text)
-
+# Button to encrypt
+if st.button("Encrypt now"):
+    if text:
+        encrypted_text = caesar(text, shift)
+        st.write('**Plain text:**', text)
+        st.write('**Encrypted text:**', encrypted_text)
+    else:
+        if st.button("deycrept now"):
+        if.text:
+        decrypted_text = caesar_encrypt(text, -shift)  # Use negative shift for decryption
+        st.write('**Input text:**', text)
+        st.Write(This app allows you to ebcrypt and deycrept anything that you want to.)
+        st.write('**Decrypted text:**', decrypted_text)
