@@ -31,7 +31,7 @@ if st.button("Encrypt now"):
         st.write('**Plain text:**', text)
         st.write('**Encrypted text:**', encrypted_text)
     else: 
-        st.warning("Please enter a text to decrypt.")
+        st.warning("Please enter a text to encrypt.")
         
 if st.button("Decrypt now"):
     if text:
