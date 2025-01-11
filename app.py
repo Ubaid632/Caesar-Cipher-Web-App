@@ -1,40 +1,34 @@
 import streamlit as st
 
-def caesar(message, offset):
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    encrypted_text = ''
-
-    for char in message.lower():
-        if char == ' ':
-            encrypted_text += char
+def caesar_cipher(text, shift):
+    result = ""
+    for char in text:
+        if char.isalpha():
+            start = ord('a') if char.islower() else ord('A')
+            result += chr((ord(char) - start + shift) % 26 + start)
         else:
-            index = alphabet.find(char)
-            new_index = (index + offset) % len(alphabet)
-            encrypted_text += alphabet[new_index]
+            result += char
+    return result
 
-    return encrypted_text
+def decrypt(text, shift):
+    return caesar_cipher(text, -shift)
 
-# Streamlit app layout
-st.title("Ubaid's Cipher App")
-st.write("this app encrypts and decryptes your sentences which means it makes your sentence not easy to understand")
+# App Title
+st.title("Aqsi's Cipher App")  # Customize with your name
+st.write("The Caesar cipher is a substitution cipher where each letter in the plaintext is shifted by a certain number of positions in the alphabet.")
 
-# Input for plain text
-text = st.text_input("Enter the text to be encrypted:")
+# User input
+text = st.text_input("Enter the text you want to encrypt/decrypt:")
 
-# Input for shift value
-shift = st.number_input("Enter the shift value (-25-25):", min_value=-25, max_value=25, value=5)
+shift = st.slider("Select Shift Value", min_value=1, max_value=25, value=5)
 
-# Button to encrypt
-if st.button("Encrypt"):
-    if text:
-        encrypted_text = caesar(text, shift)
-        st.write('**Plain text:**', text)
-        if st.button("Decrypt"):
-	if text:
-        decrypted_text = caesar_encrypt(text, -shift)  # Use negative shift for decryption
-        st.write('**Input text:**', text)
-        st.write('**Decrypted text:**', decrypted_text)
+# Encrypt button
+if st.button("Run Cipher"):
+    encrypted_text = caesar_cipher(text, shift)
+    st.write("Encrypted Text:", encrypted_text)
 
-        st.write('**Encrypted text:**', Run Cipher)
-    else:
-        st.warning("Please enter a text to encrypt.")
+# Decrypt button
+if st.button("Decrypt Now!"):
+    decrypted_text = decrypt(text, shift)
+    st.write("Decrypted Text:", decrypted_text)
+
