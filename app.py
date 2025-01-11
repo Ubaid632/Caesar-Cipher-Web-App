@@ -31,9 +31,11 @@ if st.button("Encrypt now"):
         st.write('**Plain text:**', text)
         st.write('**Encrypted text:**', encrypted_text)
     else:
-        if st.button("deycrept now"):
-        if.text:
-        decrypted_text = caesar_encrypt(text, -shift)  # Use negative shift for decryption
+if st.button("Decrypt now"):
+	if text:
+        decrypted_text = caesar(text, -shift)  # Use negative shift for decryption
         st.write('**Input text:**', text)
-        st.Write(This app allows you to ebcrypt and deycrept anything that you want to.)
         st.write('**Decrypted text:**', decrypted_text)
+	else:
+        st.warning("Please enter a text to decrypt.")
+
