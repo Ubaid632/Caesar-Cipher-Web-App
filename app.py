@@ -32,10 +32,10 @@ if st.button("Encrypt now"):
         st.write('**Encrypted text:**', encrypted_text)
     else:
 if st.button("Decrypt now"):
-	if text:
+    if text:
         decrypted_text = caesar(text, -shift)  # Use negative shift for decryption
         st.write('**Input text:**', text)
         st.write('**Decrypted text:**', decrypted_text)
-	else:
+    else:
         st.warning("Please enter a text to decrypt.")
 
